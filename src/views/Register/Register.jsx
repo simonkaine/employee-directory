@@ -10,7 +10,7 @@ export default function Login() {
     const { formState, handleFormChange } = useForm({email: '', password: ''});
     const [error, setError] = useState(null);
     const { from } = location.state || { from: {pathname: '/'}};
-
+    
     const handleLogin = (e) => {
         e.preventDefault()
         const loginIsSuccessful = auth.login(formState.email, formState.password);

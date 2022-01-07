@@ -1,36 +1,60 @@
 import React from 'react'
 import { useUser } from '../../context/UserContext'
- 
+import { handleFormChange } from '../../hooks/useForm'
+import { createProfile } from '../../services/profiles';
+
 export default function Profile() {
     
-    const user = useUser();
-    console.log(user, 'USER')
+    const { user } = useUser();
+    const haveProfile = false 
+    const handleCreateProfile = (e) => {
+        e.preventDefault();
+        createProfile({ name, email, bio, birthday })
+        haveProfile = true
+          }
+
+
+    
     return (
         <div>
-            {/* !haveProfile ? (
+             !haveProfile ? (
 
             {/* create profile form */}
-            {/* <form> */}
+            <form onSubmit={handleCreateProfile}>
                 {/* name */}
-                <input></input>
+                <input type='text' id="name"
+                name="name"
+                value={e.target.value}
+                onChange={handleFormChange} ></input>
                 {/* email - non editable */}
-                <span></span>
+                <span>{user.email}</span>
                 {/* birthday */}
-                <input></input>
+                <input type='date' id="birthday"
+                name="birthday"
+                value={e.target.value}
+                onChange={handleFormChange} ></input>
                 {/* bio */}
-                <input></input>
+                <input type='text'
+                id="bio"
+                name="bio"
+                value={e.target.value}
+                onChange={handleFormChange}
+                ></input>
+                <button type='submit'>Submit</button>
 
-            {/* </form> */}
-            {/* ) : (  */}
+            </form>
+            ) : ( 
+                <section>
                 {/* name */}
-                <p></p> 
+                <p>{name}</p> 
                 {/* email */}
-                <p></p> 
+                <p>{email}</p> 
                 {/* birthday */}
-                <p></p> 
+                <p>{birthday}</p> 
                 {/* bio */}
-                <p></p> 
-                {/* ) */} 
+                <p>{bio}</p> 
+                </section>
+                ) 
             <h1>
                 SOME RANDOM PROFILE STUFF??
             </h1>    
