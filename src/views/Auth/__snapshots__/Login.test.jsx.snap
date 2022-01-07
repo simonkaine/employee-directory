@@ -46,6 +46,14 @@ exports[`should render Login comp + snapshot test 1`] = `
         Sign In
       </button>
     </form>
+    <span>
+      Don't have an account? 
+      <a
+        href="/register"
+      >
+        sign up
+      </a>
+    </span>
   </fieldset>
 </div>
 `;

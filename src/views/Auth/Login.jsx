@@ -2,6 +2,7 @@ import { useState } from 'react';
 import { useHistory, useLocation } from 'react-router-dom';
 import { useAuth } from '../../hooks/useAuth.js';
 import { useForm } from '../../hooks/useForm.js';
+import { Link } from 'react-router-dom';
 
 export default function Login() {
     const history = useHistory();
@@ -54,6 +55,7 @@ export default function Login() {
                 Sign In
                 </button>
             </form>
+            <span>Don't have an account? <Link to='/register'>sign up</Link></span>
             {error && <p className="text-center text-red-500 font-bold">{error}</p>}
         </fieldset>
         </>

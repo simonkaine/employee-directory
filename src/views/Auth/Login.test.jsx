@@ -13,5 +13,5 @@ it('should render Login comp + snapshot test', () => {
     </MemoryRouter>
   );
 
-  expect(container).toMatchSnapshot();
+  expect(container).toMatchSnapshot(); 
 });
